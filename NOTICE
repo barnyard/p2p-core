@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>ASF Source Header and Copyright Notice Policy</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta property="og:image" content="http://www.apache.org/images/asf_logo.gif" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/apache_boot.js"></script>
+
+    
+      <link rel="alternate" href="http://mail-archives.apache.org/mod_mbox/www-legal-discuss/?format=atom"
+            type="application/atom+xml" title="ASF legal-discuss Mailing List" />
+    
+
+    
+    <!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements.  See the NOTICE file distributed with this work for additional information regarding copyright ownership.  The ASF licenses this file to you under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License.  You may obtain a copy of the License at . http://www.apache.org/licenses/LICENSE-2.0 . Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and limitations under the License. -->
+  </head>
+
+  <body>
+    <div id="page" class="container_16">
+      <div id="header" class="grid_8">
+        <img src="/images/feather-small.gif" alt="The Apache Software Foundation">
+        <h1>The Apache Software Foundation</h1>
+        <h2>ASF Source Header and Copyright Notice Policy</h2>
+      </div>
+      <div id="nav" class="grid_8">
+        <ul>
+          <!-- <li><a href="/" title="Welcome!">Home</a></li> -->
+          <li><a href="/foundation/" title="The Foundation">Foundation</a></li>
+          <li><a href="http://projects.apache.org" title="The Projects">Projects</a></li>
+          <li><a href="http://people.apache.org" title="The People">People</a></li>
+          <li><a href="/foundation/getinvolved.html" title="Get Involved">Get Involved</a></li>
+          <li><a href="/dyn/closer.cgi" title="Download">Download</a></li>
+          <li><a href="/foundation/sponsorship.html" title="Support Apache">Support Apache</a></li>
+        </ul>
+        <p><a href="/">Home</a>&nbsp;&raquo&nbsp;<a href="/legal/">Legal</a></p>
+        <form name="search" id="search" action="http://www.google.com/search" method="get">
+          <input value="*.apache.org" name="sitesearch" type="hidden"/>
+          <input type="text" name="q" id="query">
+          <input type="submit" id="submit" value="Search">
+        </form>
+      </div>
+      <div class="clear"></div>
+      <div id="content" class="grid_16"><div class="section-content"><h2 id="purpose">Purpose and Intended Audience</h2>
+<p>This document describes how Apache committers and PMC members should handle source file licensing and copyright notices.<br />
+It does not apply to developers outside the ASF who are applying the Apache License to their work.  The 
+<a href="http://apache.org/licenses/LICENSE-2.0.html#apply">appendix to the Apache License</a> describes how others can apply 
+the license to their work.  This page also does not describe requirements for
+<a href="http://apache.org/dev/apply-license.html#new">what goes in the standard LICENSE file</a> distributed with each Apache 
+product release, nor what are the <a href="/legal/3party.html">acceptable licenses for distribution of third-party components</a>.<br />
+</p>
+<h2 id="overview">Overview</h2>
+<p>Apache products are composed of lots of pieces of code across numerous source files, licensed to the ASF by various authors 
+who maintain ownership of their contributions.  When a PMC goes through the process of selecting, coordinating, and arranging 
+all these various contributions into a single product, the collective work is also protected by copyright law and is owned by 
+the ASF -- even though each individual piece of code is still owned by the contributor.  An Apache product may also
+include other components that were not submitted directly to the ASF, but are <a href="/legal/3party.html">licensed in such a way</a>
+that is consistent with the ASF's licensing practices.</p>
+<p>Considering all of these factors, this document describes how to:
+- <a href="#headers">Label source headers of contributed source</a>,
+- <a href="#3party">Treat copyright and licensing of third-party works</a>, and
+- <a href="#notice">Use the NOTICE file to collect copyright notices and required attributions</a>.</p>
+<p>This document also includes:
+- <a href="#faq">Frequently Asked Questions</a>,</p>
+<p>which will be updated as new questions come up on the <a href="/foundation/mailinglists.html#foundation-legal">legal-discuss</a> mailing list.</p>
+<h2 id="updates">Notification of Updates to this Page</h2>
+<p>Updates to this page are sent to the <a href="/foundation/mailinglists.html#foundation-legal">legal-discuss</a> mailing list. </p>
+<h2 id="headers">Source File Headers for Code Developed at the ASF</h2>
+<p><ol start="0"><br />
+ <li id="header-asf">This section refers only to works submitted directly to the ASF by the copyright owner or owner's agent.</li>
+ <li id="header-existingcopyright">If the source file is submitted with a copyright notice included in it, the copyright owner (or owner's agent) must either:
+    <ol type="a">
+      <li>remove such notices, or</li>
+      <li>move them to the NOTICE file associated with each applicable project release, or</li>
+      <li>provide written permission for the ASF to make such removal or relocation of the notices.</li>
+    </ol>
+  </li>
+ <li id="header-text">Each source file should include the following license header -- note that there should be no copyright notice in the header:</p>
+<div class="codehilite"><pre>       Licensed to the Apache Software Foundation (ASF) under one
+       or more contributor license agreements.  See the NOTICE file
+       distributed with this work for additional information
+       regarding copyright ownership.  The ASF licenses this file
+       to you under the Apache License, Version 2.0 (the
+       &quot;License&quot;); you may not use this file except in compliance
+       with the License.  You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing,
+       software distributed under the License is distributed on an
+       &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+       KIND, either express or implied.  See the License for the
+       specific language governing permissions and limitations
+       under the License.
+</pre></div>
+
+
+<p></li>
+</ol>  <br />
+</p>
+<h2 id="3party">Treatment of Third-Party Works</h2>
+<p><ol start="0"><br />
+ <li id="3party-defn">The term "third-party work" refers to a work not submitted directly to the ASF by the copyright owner or owner's agent.</li>
+ <li id="3party-nomove">Do not modify or remove any copyright notices or licenses within third-party works.</li>
+ <li id="3party-addlicense">Do ensure that every third-party work includes its associated license, even if that requires 
+ adding a copy of the license from the third-party download site into the distribution.</li>
+ <li id="3party-noapachelicense">Do not add the standard Apache License header to the top of third-party source files.</li>
+ <li id="3party-minormodsok">Minor modifications/additions to third-party source files should typically be licensed under the same terms as the rest of the rest of the third-party source for convenience.</li>
+ <li id="3party-majormodpmc">Major modifications/additions to third-party should be dealt with on a case-by-case basis by the PMC.</li>
+</ol></p>
+<h2 id="notice">NOTICE file</h2>
+<p><ol start="0"><br />
+ <li id="notice-required">Every Apache distribution should include a NOTICE file in the top directory, along with the standard LICENSE file.</li>
+ <li id="notice-text">The top of each NOTICE file should include the following text, suitably modified to reflect the product name and year(s) 
+ of distribution of the current and past versions of the product:</p>
+<div class="codehilite"><pre>      <span class="n">Apache</span> <span class="p">[</span><span class="n">PRODUCT_NAME</span><span class="p">]</span>
+      <span class="n">Copyright</span> <span class="p">[</span><span class="n">yyyy</span><span class="p">]</span> <span class="n">The</span> <span class="n">Apache</span> <span class="n">Software</span> <span class="n">Foundation</span>
+
+      <span class="n">This</span> <span class="n">product</span> <span class="n">includes</span> <span class="n">software</span> <span class="n">developed</span> <span class="n">at</span>
+      <span class="n">The</span> <span class="n">Apache</span> <span class="n">Software</span> <span class="n">Foundation</span> <span class="p">(</span><span class="n">http:</span><span class="sr">//</span><span class="n">www</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+
+
+<p></li>
+ <li id="notice-other">The remainder of the NOTICE file is to be used for <a href="http://apache.org/legal/resolved.html#required-third-party-notices">required third-party notices</a>.<br />
+ The NOTICE file may also include copyright notices moved <a href="#header-existingcopyright">from source files submitted to the ASF</a>.</li>
+</ol></p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<h3 id="faq-when">When must Apache projects comply with this policy?</h3>
+<p>All releases created and distributed after November 1, 2006 must comply with this policy.</p>
+<h3 id="faq-why">Why is this change required?</h3>
+<p>Since contributors maintain their copyright ownership in the works they submit, it is misleading to place the ASF
+copyright at the top of each source file.  The previous ASF copyright notice represented the ASF's ownership in the collective work
+of the entire distribution, but placing it at the top of each source file was causing a lot of confusion. To avoid this confusion, 
+we are placing all copyright notices in a single file and leaving only the licensing information within each source file.</p>
+<h4 id="faq-branches">Is it sufficient just to change the headers on files in trunk and active branches?</h4>
+<p>Yes.  Only active branches from which releases are cut need to be updated.</p>
+<h4 id="faq-moveothercopyright">Should a project move non-ASF copyright notices from Apache source files to the NOTICE file?</h4>
+<p>No.  If the copyright owner is still involved with the project, they should move the notice themselves or permit us to do so.
+If the owner cannot be found, the copyright notice should be left as is, but the new licensing header should be added or
+substituted for any existing Apache license header.</p>
+<h3 id="faq-update-scripts">What scripts are available to update existing source headers?</h3>
+<p>See <a href="https://svn.apache.org/repos/private/committers/">https://svn.apache.org/repos/private/committers/</a>
+for some examples.  In particular, the following files have been updated to reflect the latest header requirement:</p>
+<ul>
+<li><code>tools/copy2license.pl</code>, and</li>
+<li><code>relicense/src/perl/{relicense.txt | insert_license.pl | update-AL20.pl}</code></li>
+</ul>
+<p><strong>However, be sure to check that these scripts work for your project's code base.</strong> See a 
+<a href="http://mail-archives.apache.org/mod_mbox/www-legal-discuss/200606.mbox/%3c20060605043627.GQ28229@igg.indexgeo.com.au%3e">
+post on legal-discuss</a> on this topic.</p>
+<h3 id="faq-examplenotice">Where can I find an example of the NOTICE file that is required to be included in every ASF release?</h3>
+<p>See the <a href="/licenses/example-NOTICE.txt">httpd project NOTICE example</a>.</p>
+<h3 id="faq-docs">Does this policy apply to documentation files included in a release?</h3>
+<p>Yes.</p>
+<h3 id="faq-webpages">Does this policy also apply to content displayed on our web sites?</h3>
+<p>No.  Our web sites do not have an associated NOTICE file.  Instead we may soon be making the terms of such content
+explicit through a "Terms of Use" or "Legal Information" link in the footer of web pages.  At this point, no action is
+required for Apache web sites.</p>
+<h3 id="faq-siteindocs">What if my project includes its web site within a product distribution?</h3>
+<p>With <a href="#faq-exceptions">few exceptions</a>, all human-readable Apache-developed files that are included within a distribution must
+include the <a href="#header-text">header text</a>.  Documentation, including web site documentation distributed with the 
+release, may include the header text within some form of metadata (such as HTML comments) or as a header or footer
+appearing in the visible documentation.</p>
+<h3 id="faq-exceptions">What files in an Apache release do not require a license header?</h3>
+<p>A file without any degree of creativity in either its literal elements or its structure is not protected by
+copyright law; therefore, such a file does not require a license header.  If in doubt about the extent of the
+file's creativity, add the license header to the file.</p>
+<h3 id="faq-binaries">Does the policy apply to binary/object files, such as executables or JAR files?</h3>
+<p>Yes.  Even if there are no source files within the release, the LICENSE file and NOTICE file are still both required within 
+every ASF distribution -- whether the unit of distribution is a .jar, .msi, .tar/.?gz, .zip, .exe installer, or any 
+other file format used for distributions.  For example, Windows .exe files must not be used as a unit of distribution 
+unless they are installers and include the LICENSE and NOTICE files in their installation.</p>
+<h3 id="faq-3partybinaries">Does this policy apply to third-party binary/object files included within an ASF release?</h3>
+<p>Yes.  See the policy's <a href="#3party">third-party works</a> section, particularly the 
+<a href="#3party-addlicense">requirement</a> to ensure a license exists for each third-party work.</p>
+<h3 id="faq-media">Do images or other media require a copyright line in the NOTICE file?</h3>
+<p>If the media was contributed directly to an ASF project, the contributor has the option to insert their copyright notice 
+in the  NOTICE file, as is <a href="#header-existingcopyright">described for source files</a>.  If the media comes from a 
+third-party source (not contributed directly to the project), then any copyright notice that is obviously associated with 
+the media should be copied into the NOTICE file. </p>
+<h3 id="faq-whyheader">Why is a licensing header necessary?</h3>
+<p>License headers allow someone examining the file to know the terms for the work, even when it is distributed without 
+the rest of the distribution.  Without a licensing notice, it must be assumed that the author has reserved all rights, 
+including the right to copy, modify, and redistribute.</p>
+<h3 id="faq-nonasf">Does this policy apply to projects outside the ASF that use the Apache License?</h3>
+<p>No.  This is strictly an ASF policy.  Other projects using the Apache License should still refer to the 
+<a href="/licenses/LICENSE-2.0.html#apply">license's appendix</a> for guidance on applying a header to their source files.</p></div></div>
+      <div class="clear"></div>
+    </div>
+    <div id="footer" class="container_16">
+      <div class="links grid_16">
+      <div class="grid_3">
+        <h4>Projects</h4>
+        <ul>
+<li><a href="http://httpd.apache.org/" title="Apache Web Server (httpd)">HTTP Server</a></li>
+<li><a href="http://abdera.apache.org/" title="Atom Publishing Protocol Implementation">Abdera</a></li>
+<li><a href="http://accumulo.apache.org/" title="Sorted, distributed key/value store">Accumulo</a></li>
+<li><a href="http://ace.apache.org/" title="Centralized life cycle management and deployment of OSGi based and related modular software artifacts for distribution.">ACE</a></li>
+<li><a href="http://activemq.apache.org/" title="Distributed Messaging System">ActiveMQ</a></li>
+<li><a href="http://ant.apache.org/" title="Java-based build tool">Ant</a></li>
+<li><a href="http://apr.apache.org/" title="Apache Portable Runtime libraries">APR</a></li>
+<li><a href="http://archiva.apache.org/" title="Build Artifact Repository Manager">Archiva</a></li>
+<li><a href="http://aries.apache.org/" title="Enterprise OSGi application programming model">Aries</a></li>
+<li><a href="http://avro.apache.org/" title="A Serialization System">Avro</a></li>
+<li><a href="http://axis.apache.org/" title="Java SOAP Engine">Axis</a></li>
+<li><a href="http://buildr.apache.org/" title="Simple and intuitive build system for Java applications">Buildr</a></li>
+<li><a href="http://bval.apache.org/" title="Apache BVal: JSR-303 Bean Validation Implementation and Extensions">BVal</a></li>
+<li><a href="http://camel.apache.org/" title="Spring based Integration Framework which implements the Enterprise Integration Patterns">Camel</a></li>
+<li><a href="http://cassandra.apache.org/" title="Highly scalable second-generation distributed database">Cassandra</a></li>
+<li><a href="http://cayenne.apache.org/" title="User-friendly Java ORM with Tools">Cayenne</a></li>
+<li><a href="http://chemistry.apache.org/" title="CMIS (Content Managment Interoperability Services) Clients and Servers">Chemistry</a></li>
+<li><a href="http://click.apache.org/" title="User-friendly page and component oriented web framework">Click</a></li>
+<li><a href="http://cocoon.apache.org/" title="Web development framework: separation of concerns, component-based">Cocoon</a></li>
+<li><a href="http://commons.apache.org/" title="Reusable Java components">Commons</a></li>
+<li><a href="http://continuum.apache.org/" title="Continuous Integration and Build Server">Continuum</a></li>
+<li><a href="http://couchdb.apache.org/" title="RESTful document database">CouchDB</a></li>
+<li><a href="http://creadur.apache.org/" title="Comprehension and auditing of software distributions">Creadur</a></li>
+<li><a href="http://cxf.apache.org/" title="Service Framework">CXF</a></li>
+<li><a href="http://db.apache.org/" title="Database access">DB</a></li>
+<li><a href="http://deltacloud.apache.org/" title="RESTful cloud management interface">Deltacloud</a></li>
+<li><a href="http://directory.apache.org/" title="Apache Directory Server">Directory</a></li>
+<li><a href="http://empire-db.apache.org/" title="Relational Data Persistence">Empire-db</a></li>
+<li><a href="http://esme.apache.org/" title="Enterprise Social Messaging Environment">ESME</a></li>
+<li><a href="http://felix.apache.org/" title="OSGi Framework and components.">Felix</a></li>
+<li><a href="http://forrest.apache.org/" title="Aggregated multi-channel documentation, separation of concerns">Forrest</a></li>
+<li><a href="http://geronimo.apache.org/" title="Java2, Enterprise Edition (J2EE) container">Geronimo</a></li>
+<li><a href="http://gora.apache.org/" title="ORM framework for column stores such as Apache HBase and Apache Cassandra with a specific focus on Hadoop">Gora</a></li>
+<li><a href="http://gump.apache.org/" title="Continuous integration of open source projects">Gump</a></li>
+<li><a href="http://hadoop.apache.org/" title="Distributed computing platform">Hadoop</a></li>
+<li><a href="http://hbase.apache.org/" title="Hadoop Database">HBase</a></li>
+<li><a href="http://hive.apache.org/" title="Data warehouse infrastructure using the Hadoop Database">Hive</a></li>
+<li><a href="http://hc.apache.org/" title="Java toolset of low level HTTP components">HttpComponents</a></li>
+<li><a href="http://jackrabbit.apache.org/" title="Content Repository for Java">Jackrabbit</a></li>
+<li><a href="http://james.apache.org/" title="Java Apache Mail Enterprise Server">James</a></li>
+<li><a href="http://jena.apache.org/" title="Java framework for building Semantic Web applications">Jena</a></li>
+<li><a href="http://jmeter.apache.org/" title="Java performance and functional testing">JMeter</a></li>
+<li><a href="http://juddi.apache.org/" title="Java implementation of the Universal Description, Discovery, and Integration specification">jUDDI</a></li>
+<li><a href="http://karaf.apache.org/" title="Server-side OSGi distribution">Karaf</a></li>
+<li><a href="http://lenya.apache.org/" title="Content Management System">Lenya</a></li>
+<li><a href="http://libcloud.apache.org/" title="Unified interface to the cloud">Libcloud</a></li>
+<li><a href="http://logging.apache.org/" title="Cross-language logging services">Logging</a></li>
+<li><a href="http://lucene.apache.org/" title="Search engine library">Lucene</a></li>
+<li><a href="http://lucy.apache.org/" title="Search engine library for dynamic languages">Lucy</a></li>
+<li><a href="http://mahout.apache.org/" title="Scalable machine learning library">Mahout</a></li>
+<li><a href="http://maven.apache.org/" title="Java project management and comprehension tools">Maven</a></li>
+<li><a href="http://mina.apache.org/" title="Multipurpose Infrastructure for Network Application">MINA</a></li>
+<li><a href="http://mrunit.apache.org/" title="Java library that helps developers unit test Apache Hadoop map reduce jobs">MRUnit</a></li>
+<li><a href="http://myfaces.apache.org/" title="JavaServer(tm) Faces implementation and components">MyFaces</a></li>
+<li><a href="http://nutch.apache.org/" title="Open Source Web Search Software">Nutch</a></li>
+<li><a href="http://ode.apache.org/" title="Orchestration Director Engine: Business Process Management (BPM), Process Orchestration and Workflow through service composition.">ODE</a></li>
+<li><a href="http://oodt.apache.org/" title="Object Oriented Data Technology (middleware metadata)">OODT</a></li>
+<li><a href="http://ofbiz.apache.org/" title="Open for Business: enterprise automation software">OFBiz</a></li>
+<li><a href="http://openejb.apache.org/" title="OpenEJB: a modular, configurable, and extendable EJB Container System and Server">OpenEJB</a></li>
+<li><a href="http://openjpa.apache.org/" title="OpenJPA: Object Relational Mapping for Java">OpenJPA</a></li>
+<li><a href="http://opennlp.apache.org/" title="Machine learning based toolkit for the processing of natural language text">OpenNLP</a></li>
+<li><a href="http://openwebbeans.apache.org/" title="OpenWebBeans: JSR-299 Context and Dependency Injection for Java EE Platform Implementation">OpenWebBeans</a></li>
+<li><a href="http://pdfbox.apache.org/" title="Java library for working with PDF documents">PDFBox</a></li>
+<li><a href="http://perl.apache.org/" title="Dynamic websites using Perl">Perl</a></li>
+<li><a href="http://pig.apache.org/" title="Platform for analyzing large data sets">Pig</a></li>
+<li><a href="http://pivot.apache.org/" title="Rich Internet applications in Java">Pivot</a></li>
+<li><a href="http://poi.apache.org/" title="Java API for OLE 2 Compound and OOXML Documents">POI</a></li>
+<li><a href="http://portals.apache.org/" title="Portal technology">Portals</a></li>
+<li><a href="http://qpid.apache.org/" title="Multiple language implementation of the latest Advanced Message Queuing Protocol (AMQP)">Qpid</a></li>
+<li><a href="http://rave.apache.org/" title="Web and social mashup engine">Rave</a></li>
+<li><a href="http://river.apache.org/" title="Jini service oriented architecture">River</a></li>
+<li><a href="http://roller.apache.org/" title="Java blog server">Roller</a></li>
+<li><a href="http://santuario.apache.org/" title="XML Security in Java and C++">Santuario</a></li>
+<li><a href="http://servicemix.apache.org/" title="Enterprise Service Bus">ServiceMix</a></li>
+<li><a href="http://shindig.apache.org/" title="Opensocial Reference Implementation">Shindig</a></li>
+<li><a href="http://shiro.apache.org/" title="Powerful and easy-to-use application security framework">Shiro</a></li>
+<li><a href="http://sling.apache.org/" title="Web Framework for JCR Content Repositories">Sling</a></li>
+<li><a href="http://spamassassin.apache.org/" title="Mail filter to identify spam">SpamAssassin</a></li>
+<li><a href="http://stdcxx.apache.org/" title="Apache C++ Standard Library">STDCXX</a></li>
+<li><a href="http://sqoop.apache.org/" title="Bulk Data Transfer for Hadoop and Structured Datastores">Sqoop</a></li>
+<li><a href="http://struts.apache.org/" title="Model 2 framework for building Java web applications">Struts</a></li>
+<li><a href="http://subversion.apache.org/" title="Version Control">Subversion</a></li>
+<li><a href="http://synapse.apache.org/" title="Enterprise Service Bus and Mediation Framework">Synapse</a></li>
+<li><a href="http://tapestry.apache.org/" title="Component-based Java Web Application Framework">Tapestry</a></li>
+<li><a href="http://tcl.apache.org/" title="Dynamic websites using TCL">Tcl</a></li>
+<li><a href="http://thrift.apache.org/" title="Framework for scalable cross-language services development">Thrift</a></li>
+<li><a href="http://tika.apache.org" title="Content Analysis and Detection Toolkit">Tika</a></li>
+<li><a href="http://tiles.apache.org/" title="A templating framework for web application user interfaces">Tiles</a></li>
+<li><a href="http://tomcat.apache.org/" title="A Java Servlet and JSP Container">Tomcat</a></li>
+<li><a href="http://trafficserver.apache.org/" title="A fast, scalable and extensible HTTP/1.1 compliant caching proxy server">Traffic Server</a></li>
+<li><a href="http://turbine.apache.org/" title="A Java Servlet Web Application Framework and associated component library">Turbine</a></li>
+<li><a href="http://tuscany.apache.org/" title="An SCA based Service Composition Framework">Tuscany</a></li>
+<li><a href="http://uima.apache.org/" title="Framework and annotators for unstructured information analysis">UIMA</a></li>
+<li><a href="http://velocity.apache.org/" title="A Java Templating Engine">Velocity</a></li>
+<li><a href="http://ws.apache.org/">Web Services</a></li>
+<li><a href="http://whirr.apache.org/" title="Libraries for running Cloud Services">Whirr</a></li>
+<li><a href="http://wicket.apache.org/" title="Component-based Java Web Application Framework.">Wicket</a></li>
+<li><a href="http://xalan.apache.org/" title="XSLT processors in Java and C++">Xalan</a></li>
+<li><a href="http://xerces.apache.org/" title="XML parsers in Java, C++ and Perl">Xerces</a></li>
+<li><a href="http://xmlbeans.apache.org/" title="XML-Java binding tool">XMLBeans</a></li>
+<li><a href="http://xmlgraphics.apache.org/" title="Conversion from XML to graphical output">XML Graphics</a></li>
+<li><a href="http://zookeeper.apache.org/" title="Centralized service for maintaining configuration information">ZooKeeper</a></li>
+</ul>
+      </div>
+      <div class="grid_3">
+        <h4>Foundation</h4>
+        <ul>
+          <li><a href="/foundation/faq.html">FAQ</a></li> 
+          <li><a href="/licenses/" title="Overview of the Apache Licenese">Licenses</a></li> 
+          <li><a href="/foundation/marks/" title="Apache marks policies and listing">Trademarks</a></li>  
+          <li><a href="/foundation/news.html" title="Official news feed of Foundation announcements">News</a></li> 
+          <li><a href="/press/" title="Press, Media, and Analyst contact">Press Inquiries</a></li> 
+          <li><a href="/foundation/records/" title="Formal corporate records and board meeting minutes">Public Records</a></li> 
+          <li><a href="/foundation/mailinglists.html" title="Mailing lists and Apache">Mailing Lists</a></li> 
+          <li><a href="/foundation/sponsorship.html" title="Sponsor the Foundation">Sponsorship</a></li> 
+          <li><a href="/foundation/contributing.html" title="Donate to the Foundation">Donations</a></li> 
+          <li><a href="/foundation/buy_stuff.html" title="Buy Apache branded merchandise">Buy Stuff</a></li> 
+          <li><a href="/foundation/thanks.html" title="Thank you to our Sponsors">Thanks</a></li> 
+          <li><a href="/foundation/contact.html" title="Contact Us">Contact</a></li> 
+        </ul>
+      </div>
+      <div class="grid_3 suffix_1">
+        <h4>Foundation Projects</h4>
+        <ul>
+          <li><a href="http://attic.apache.org/" title="Inactive projects repository">Attic</a></li> 
+          <li><a href="/foundation/conferences.html" title="Meetings of developers and users">Conferences</a></li> 
+          <li><a href="http://community.apache.org/" title="Helping newcomers to the ASF">Community Development</a></li> 
+          <li><a href="http://incubator.apache.org/" title="Shepherd for new projects">Incubator</a></li> 
+          <li><a href="/dev/" title="ASF Infrastructure: Operations and howto documents for PMCs and contributors">Infrastructure</a></li> 
+          <li><a href="http://labs.apache.org/" title="The Innovation Laboratories of the Apache Software Foundation">Labs</a></li> 
+          <li><a href="/legal/" title="Legal Affairs">Legal Affairs</a></li> 
+          <li><a href="/press/" title="Public Relations">Public Relations</a></li> 
+          <li><a href="/security/" title="Security">Security</a></li> 
+          <li><a href="/travel/" title="Travel Assistance">Travel Assistance</a></li> 
+        </ul>
+      </div>
+      
+      <div class="grid_3">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="http://people.apache.org/" title="Apache committer homepages">People</a></li> 
+          <li><a href="/memorials/" title="In memoriam of past committers">Memorials</a></li> 
+          <li><a href="http://feathercast.org/" title="Apache Podcasts">Feathercast</a></li> 
+          <li><a href="http://blogs.apache.org/" title="Apache Project Blogs">Project Blogs</a></li> 
+          <li><a href="http://planet.apache.org/committers/" title="Apache Committers' Blogs">PlanetApache</a></li> 
+        </ul>
+      </div>
+      <div class="grid_3">
+        <h4>How It Works</h4>
+        <ul>
+          <li><a href="/foundation/how-it-works.html">Introduction</a></li> 
+          <li><a href="/foundation/how-it-works.html#meritocracy">Meritocracy</a></li> 
+          <li><a href="/foundation/how-it-works.html#structure">Structure</a></li> 
+          <li><a href="/foundation/how-it-works.html#roles">Roles</a></li> 
+          <li><a href="/foundation/how-it-works.html#management">Collaboration</a></li> 
+          <li><a href="/foundation/how-it-works.html#incubator">Incubator</a></li> 
+          <li><a href="/foundation/how-it-works.html#other">Other entities</a></li> 
+          <li><a href="/foundation/glossary.html">Glossary</a></li> 
+          <li><a href="/foundation/voting.html">Voting</a></li> 
+        </ul>
+      </div>
+    </div>
+    <div class="clear"></div>
+    
+    </div>
+    <div id="copyright" class="container_16">
+      <p>Copyright &#169; 2012 The Apache Software Foundation, Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.</p>
+    </div>
+  </body>
+</html>
