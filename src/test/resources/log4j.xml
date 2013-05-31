@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="false"
+	xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t][%C{1}.%M() %L] [%X{TRANSACTION_ID}] - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="P2P_LOGFILE" class="org.apache.log4j.FileAppender">
+		<param name="file" value="build/log/p2p.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d %-5p [%t][%C{1}.%M() %L] [%X{TRANSACTION_ID}] - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="PASTRY_LOGFILE" class="org.apache.log4j.FileAppender">
+		<param name="file" value="build/log/pastry.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d %-5p [%t][%C{1}.%M() %L] [%X{TRANSACTION_ID}] - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="rice.pastry">
+		<level value="info" />
+		<appender-ref ref="PASTRY_LOGFILE" />
+	</logger>
+
+	<logger name="com.bt">
+		<level value="debug" />
+		<appender-ref ref="P2P_LOGFILE" />
+	</logger>
+	
+	<root>
+		<priority value="warn" />
+		<appender-ref ref="console" /> 
+	</root>
+
+</log4j:configuration>

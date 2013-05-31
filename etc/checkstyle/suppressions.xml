@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+    "-//Puppy Crawl//DTD Suppressions 1.0//EN"
+    "http://www.puppycrawl.com/dtds/suppressions_1_0.dtd">
+<suppressions>
+    <suppress checks="IllegalCatchCheck" files="LocalStorageScanningApplication.java"/>
+    <suppress checks="IllegalCatchCheck" files="KoalaCli.java"/>
+    <suppress checks="IllegalCatchCheck" files="KoalaMessageDeserializer.java"/>
+    <suppress checks="IllegalCatchCheck" files="LoggingAspect.java"/>
+    <suppress checks="IllegalCatchCheck" files="KoalaPiEntityResultContinuation.java"/>
+    <suppress checks="IllegalCatchCheck" files="SharedRecordConditionalApplicationActivator.java"/>
+    <suppress checks="IllegalCatchCheck" files="ApplicationStarter.java"/>
+    <suppress checks="IllegalCatchCheck" files="MultiThreadedContinuation.java"/>
+    <suppress checks="IllegalCatchCheck" files="KoalaPastryApplicationBase.java"/>
+    <suppress checks="IllegalCatchCheck" files="KoalaGCPastImpl.java"/>
+    <suppress checks="IllegalCatchCheck" files="KoalaMessageBase.java"/>
+    <suppress checks="IllegalCatchCheck" files="ApplicationActivatorBase.java"/>
+    <suppress checks="IllegalCatchCheck" files="GenericContinuation.java"/>
+    <suppress checks="IllegalCatchCheck" files="ScatterGatherContinuation.java"/>
+    <suppress checks="IllegalCatchCheck" files="CloudPlatform.java"/>
+    <suppress checks="IllegalCatchCheck" files="Main.java"/>
+	<suppress checks="IllegalCatchCheck" files="KoalaPastryScribeApplicationBase.java"/>
+	<suppress checks="IllegalCatchCheck" files="WatcherService.java"/>
+	<suppress checks="IllegalCatchCheck" files="PersistentDhtStorage.java"/>
+	<suppress checks="IllegalCatchCheck" files="LeasedResourceAllocationRecordHeartbeater.java"/>
+    <suppress checks="IllegalCatchCheck" files="AnnotatedPropertiesLoader.java"/>
+    <suppress checks="IllegalCatchCheck" files="NodePhysicalHealthChecker.java"/>
+    <suppress checks="IllegalCatchCheck" files="SerialExecutor.java"/>
+    <suppress checks="IllegalThrows" files="KoalaP2pCommand.java"/>
+    <suppress checks="IllegalThrows" files="LoggingAspect.java"/>
+    <suppress checks="IllegalThrows" files="LogIfSlowAspect.java"/>
+    
+    <suppress checks="ClassFanOutComplexity" files="KoalaPastryApplicationBase.java"  />
+    <suppress checks="ClassFanOutComplexity" files="KoalaGCPastImpl.java"  />
+    <suppress checks="ClassDataAbstractionCoupling" files="KoalaGCPastImpl.java"  />
+
+    <suppress checks="CyclomaticComplexity" files="KoalaScribeImpl.java"  />
+    <suppress checks="CyclomaticComplexity" files="PersistentStorage.java"/>
+    
+    <suppress checks="IllegalType" files="ConcurrentSortedBoundQueue.java"/>
+    
+    <suppress checks="ParameterNumberCheck" files="KoalaGCPastImpl.java"  />
+</suppressions>

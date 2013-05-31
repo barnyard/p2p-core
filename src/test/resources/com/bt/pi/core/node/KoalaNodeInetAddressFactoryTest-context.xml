@@ -1,0 +1,27 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+	<context:component-scan
+		base-package="com.bt.pi.core.node.inet, com.bt.pi.core.environment, com.bt.pi.core.logging, com.bt.pi.core.exception, com.bt.pi.core.pastry_override">
+
+	</context:component-scan>
+
+	<bean id="koalaInetAddress" class="java.net.InetAddress"
+		factory-bean="koalaNodeInetAddressFactory" factory-method="lookupInetAddress" />
+
+	<bean id="log4jFileResource" class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg value="log4j.xml" />
+	</bean>
+
+
+	<util:property-path id="log4jFile" path="log4jFileResource.file" />
+
+
+
+
+</beans>

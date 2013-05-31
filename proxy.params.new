@@ -1,0 +1,8 @@
+#Mon Nov 30 17:13:23 UTC 2009
+koala_preferred_bootstraps=127.0.0.1\:10321
+pastry_factory_processorPerNode=true
+pastry_factory_selectorPerNode=true
+pastry_lSetSize=10
+pastry_leafSetMaintFreq=4
+pastry_socket_allow_loopback=true
+socket_bindAddress=127.0.0.1

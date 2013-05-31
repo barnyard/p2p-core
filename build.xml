@@ -1,0 +1,9 @@
+<project name="p2p-core" default="default">
+
+	<!-- user-specific properties + default values -->
+	<property file="properties/${user.name}.properties" />
+	<property file="properties/build.properties" />
+
+	<import file="${p2p-build.base}/build.xml" />
+
+</project>

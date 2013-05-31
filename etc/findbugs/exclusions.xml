@@ -1,0 +1,15 @@
+<FindBugsFilter>
+     <Match>
+       <Bug code="SIC" />	<!--  exclude static inner class whining to allow closure-like patterns -->
+     </Match>
+     <Match>
+       <Class name="com.bt.pi.core.PiUncaughtExceptionHandler" />
+       <Method name="uncaughtException" />
+       <Bug pattern="DM_EXIT" />
+     </Match>
+     <Match>
+     	<Class name="com.bt.pi.core.entity.PiEntityCollection"/>
+     	<Method name="equals"/>
+     	<Bug pattern="NP_NULL_ON_SOME_PATH"/>
+     </Match>
+</FindBugsFilter>

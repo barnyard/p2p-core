@@ -1,0 +1,139 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+                http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<context:component-scan base-package="com.bt.pi.core">
+		<context:include-filter type="assignable" expression="com.bt.pi.core.cli.commands.ManagementCommand" />
+		<context:include-filter type="assignable" expression="com.bt.pi.core.message.KoalaMessageBase" />
+		<context:include-filter type="assignable" expression="com.bt.pi.core.entity.PiEntity" />
+		<context:exclude-filter type="regex" expression="com.bt.pi.core.parser.*Test.*Entity.*" />
+		<!-- 
+		UGLY HACK. Need to clean this out when getting rid of the json file!!
+		To exclude entities defined in src/integration/java from loading in the integration project's app context 
+		-->
+		<context:exclude-filter type="regex" expression="com.bt.pi.core.dht.*MyDeletablePiEntity" />
+		<context:exclude-filter type="regex" expression="com.bt.pi.core.past.*MyDhtPiEntity" />
+		<context:exclude-filter type="regex" expression="com.bt.pi.core.dht.*MyPiEntity" />
+		<context:exclude-filter type="regex" expression="com.bt.pi.core.dht.*MyDhtRWPiEntity" />
+		<context:exclude-filter type="regex" expression="com.bt.pi.core.parser.*Test.*Entity.*" />
+	</context:component-scan>
+
+	<aop:aspectj-autoproxy proxy-target-class="false" />
+
+	<bean id="log4jFileResource" class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg value="log4j.xml"/>
+	</bean>	
+
+	<util:property-path id="log4jFile" path="log4jFileResource.file"/>
+
+	<bean id="exporter" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
+		<property name="assembler" ref="assembler" />
+		<property name="namingStrategy" ref="namingStrategy" />
+		<property name="autodetect" value="true" />
+	</bean>
+	
+	<bean id="dhtClientFactory" class="com.bt.pi.core.dht.DhtClientFactory">
+		<lookup-method bean="updateAwareDhtWriter" name="createEmptyBlockingWriter"/>
+		<lookup-method bean="simpleDhtReader" name="createEmptyBlockingReader"/>
+	</bean>
+
+	<bean id="jmxAttributeSource" class="org.springframework.jmx.export.annotation.AnnotationJmxAttributeSource" />
+
+	<bean id="assembler" class="org.springframework.jmx.export.assembler.MetadataMBeanInfoAssembler">
+		<property name="attributeSource" ref="jmxAttributeSource" />
+	</bean>
+
+	<bean id="namingStrategy" class="org.springframework.jmx.export.naming.MetadataNamingStrategy">
+		<property name="attributeSource" ref="jmxAttributeSource" />
+	</bean>
+
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="50" />
+	</bean>
+
+	<bean id="scheduledExecutorService" class="org.springframework.scheduling.concurrent.ScheduledExecutorFactoryBean">
+		<property name="continueScheduledExecutionAfterException" value="true" />
+		<property name="poolSize" value="16" />
+	</bean>
+
+	<util:properties id="properties" location="classpath:p2p.properties" />
+	
+	<util:list id="configLocations">
+		<value>classpath:p2p.properties</value>
+	</util:list>
+
+	<bean class="com.bt.pi.core.conf.PropertyAnnotationAndPlaceholderConfigurer">
+		<property name="properties" ref="properties" />
+	</bean>
+
+	<bean class="com.bt.pi.core.application.watcher.task.TaskProcessingQueueWatcherPropertiesLoader">
+		<property name="properties" ref="properties" />
+		<property name="locations" ref="configLocations" />
+	</bean>
+
+	<bean class="com.bt.pi.core.conf.DynamicAnnotationPropertyRefresher">
+		<property name="locations" ref="configLocations" />
+	</bean>
+
+	<bean id="ehCacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" />
+
+	<bean id="userCache" class="com.bt.pi.core.dht.cache.DhtCache">
+		<property name="cache" ref="userEhCache" />
+	</bean>
+
+	<bean id="userBlockingCache" class="com.bt.pi.core.dht.cache.BlockingDhtCache">
+		<property name="cache" ref="userEhCache" />
+	</bean>
+
+	<bean id="userEhCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheName" value="userCache" />
+		<property name="cacheManager" ref="ehCacheManager" />
+		<property name="maxElementsInMemory" value="100" />
+		<property name="overflowToDisk" value="false" />
+		<property name="eternal" value="false" />
+		<property name="timeToLive" value="60" />
+		<property name="timeToIdle" value="60" />
+	</bean>
+
+	<bean id="generalCache" class="com.bt.pi.core.dht.cache.DhtCache">
+		<property name="cache" ref="generalEhCache" />
+	</bean>
+
+	<bean id="generalBlockingCache" class="com.bt.pi.core.dht.cache.BlockingDhtCache">
+		<property name="cache" ref="generalEhCache" />
+	</bean>
+
+	<bean id="generalEhCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheName" value="generalEhCache" />
+		<property name="cacheManager" ref="ehCacheManager" />
+		<property name="maxElementsInMemory" value="100" />
+		<property name="overflowToDisk" value="false" />
+		<property name="eternal" value="false" />
+		<property name="timeToLive" value="120" />
+		<property name="timeToIdle" value="120" />
+	</bean>
+
+	<util:list id="errorLogAppenderFilterList">
+    	<value>foo@bar.com</value>
+	</util:list>
+
+	<task:annotation-driven scheduler="scheduledExecutorService" />
+
+	<bean id="springMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+  		<property name="host" value="localhost"/>
+	</bean>
+
+	<bean id="freeMarkerConfiguration" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+		<property name="templateLoaderPaths">
+			<list>
+				<value>classpath:templates</value>
+				<value>/</value>
+			</list>
+		</property>	
+		<property name="preferFileSystemAccess" value="false"/>
+	</bean>
+</beans>  

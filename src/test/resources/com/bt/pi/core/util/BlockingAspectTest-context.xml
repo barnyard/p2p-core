@@ -1,0 +1,68 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.bt.pi.core.util, com.bt.pi.core.dht">
+
+	</context:component-scan>
+
+	<aop:aspectj-autoproxy proxy-target-class="false" />
+
+	<bean id="log4jFileResource" class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg value="log4j.xml" />
+	</bean>
+
+	<util:property-path id="log4jFile" path="log4jFileResource.file" />
+
+	<bean id="properties" class="java.util.Properties" />
+
+	<bean id="taskExecutor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="5" />
+		<property name="maxPoolSize" value="10" />
+		<property name="queueCapacity" value="25" />
+	</bean>
+
+	<bean id="scheduledExecutorService"
+		class="org.springframework.scheduling.concurrent.ScheduledExecutorFactoryBean">
+		<property name="continueScheduledExecutionAfterException"
+			value="true" />
+		<property name="poolSize" value="16" />
+	</bean>
+
+	<bean id="nodeTypeScenarioMap" class="java.util.HashMap">
+		<constructor-arg>
+			<map key-type="com.bt.pi.core.util.KoalaNodeType">
+				<entry key="GENERIC" value-ref="genericScenarios" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="genericScenarios" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="dhtClientFactory" class="com.bt.pi.core.dht.DhtClientFactory">
+		<lookup-method bean="updateAwareDhtWriter" name="createEmptyBlockingWriter" />
+		<lookup-method bean="simpleDhtReader" name="createEmptyBlockingReader" />
+	</bean>
+
+	<bean id="freeMarkerConfiguration" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+		<property name="templateLoaderPaths">
+			<list>
+				<value>classpath:templates</value>
+				<value>/</value>
+			</list>
+		</property>	
+		<property name="preferFileSystemAccess" value="false"/>
+	</bean>
+</beans>
