@@ -26,8 +26,8 @@ public class ParameterNodeBootstrapStrategyTest {
 
     @Before
     public void before() {
-        inetAddress1 = mock(InetSocketAddress.class);
-        inetAddress2 = mock(InetSocketAddress.class);
+        inetAddress1 = new InetSocketAddress(2345);
+        inetAddress2 = new InetSocketAddress(6789);
 
         parameters = mock(Parameters.class);
 
@@ -58,8 +58,8 @@ public class ParameterNodeBootstrapStrategyTest {
         List<InetSocketAddress> result = bootstrapStrategy.getBootstrapList();
 
         // assert
-        assertEquals(result.get(0), inetAddress1);
-        assertEquals(result.get(1), inetAddress2);
+        assertTrue(result.contains(inetAddress1));
+        assertTrue(result.contains(inetAddress2));
     }
 
     @Test
